@@ -1,0 +1,65 @@
+# Image Verification Configuration
+
+# OCR 配置
+ocr:
+  tesseract:
+    # Tesseract 配置参数
+    config: '--oem 3 --psm 6 -c tessedit_char_whitelist=0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+    language: 'eng'
+  
+  easyocr:
+    # EasyOCR 配置参数
+    languages: ['en']
+    gpu: true  # 启用GPU加速
+    detail: 0
+
+# YOLO 配置
+yolo:
+  model_path: 'models/yolo/best.pt'
+  confidence: 0.5
+  iou_threshold: 0.45
+  device: 'cuda'  # 使用GPU，如果没有GPU会自动回退到CPU
+  
+# OpenCV 模板匹配配置
+template_matching:
+  threshold: 0.8
+  method: 'cv2.TM_CCOEFF_NORMED'
+  
+# 图像预处理配置
+preprocessing:
+  # 字符验证码预处理
+  char_captcha:
+    resize_height: 60
+    gaussian_blur_kernel: (3, 3)
+    morphology_kernel: (2, 2)
+    
+  # 滑块验证码预处理  
+  slider_captcha:
+    edge_threshold: [50, 150]
+    blur_kernel: 5
+    
+  # 点击验证码预处理
+  click_captcha:
+    resize_width: 640
+    resize_height: 640
+
+# 模型路径配置
+models:
+  yolo: 'models/yolo/'
+  ocr: 'models/ocr/'
+  templates: 'models/templates/'
+
+# 输出配置
+output:
+  save_results: true
+  result_path: 'results/'
+  log_level: 'INFO'
+
+# GPU 配置
+gpu:
+  # 自动检测GPU可用性
+  auto_detect: true
+  # 首选设备 ('cuda', 'cpu', 'auto')
+  preferred_device: 'auto'
+  # GPU内存管理
+  memory_fraction: 0.8 

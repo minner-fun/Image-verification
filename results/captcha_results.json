@@ -1,0 +1,34 @@
+[
+  {
+    "filename": "pic1.jpg",
+    "result": {
+      "success": false,
+      "error": "不支持的验证码类型: CaptchaType.UNKNOWN",
+      "captcha_type": "unknown"
+    }
+  },
+  {
+    "filename": "icon1.png",
+    "result": {
+      "success": false,
+      "error": "不支持的验证码类型: CaptchaType.UNKNOWN",
+      "captcha_type": "unknown"
+    }
+  },
+  {
+    "filename": "icon2.png",
+    "result": {
+      "success": false,
+      "error": "不支持的验证码类型: CaptchaType.UNKNOWN",
+      "captcha_type": "unknown"
+    }
+  },
+  {
+    "filename": "icon3.png",
+    "result": {
+      "success": false,
+      "error": "不支持的验证码类型: CaptchaType.UNKNOWN",
+      "captcha_type": "unknown"
+    }
+  }
+]
